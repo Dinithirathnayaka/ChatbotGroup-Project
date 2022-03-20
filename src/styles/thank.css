@@ -1,0 +1,84 @@
+.thankbody {
+  width: 60%;
+  height: 85vh;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+  background-color: #fff;
+}
+
+.thanksbody {
+  padding: 5vh;
+  text-align: center;
+}
+
+.thanksbody h2 {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 3px;
+  margin-top: 10vh;
+  overflow: hidden;
+  background: linear-gradient(90deg, #545dde, #fff, #545dde);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+.bounce {
+  animation: bounce 2s ease infinite;
+  margin-top: 15vh;
+  overflow: hidden;
+}
+@keyframes bounce {
+  70% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(-15%);
+  }
+  90% {
+    transform: translateY(0%);
+  }
+  95% {
+    transform: translateY(-7%);
+  }
+  97% {
+    transform: translateY(0%);
+  }
+  99% {
+    transform: translateY(-3%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounce img {
+  width: 200px;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 700px) {
+  .thanksbody h2 {
+    font-size: 1.5em;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .bounce img {
+    width: 100px;
+  }
+}

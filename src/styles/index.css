@@ -1,0 +1,120 @@
+.chatar {
+  width: 60%;
+  height: 80vh;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+  background-color: #fff;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  margin-right: 5vh;
+  margin-top: -3vh;
+  font-size: 30px;
+  background-color: #545dde;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.head {
+  background-color: #545dde;
+  width: 100%;
+  height: 10vh;
+  padding: 1vh;
+}
+
+.logochat {
+  color: #fff;
+  position: absolute;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-top: 1.5vh;
+  margin-left: 3vh;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  right: 5vh;
+  overflow: hidden;
+  margin-top: 1vh;
+}
+
+.conbody {
+  padding: 5vh;
+  overflow: auto;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.conbody::-webkit-scrollbar {
+  display: none;
+}
+.flex-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.date {
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  z-index: 10;
+  margin-top: 5vh;
+  position: absolute;
+  left: 50%;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btnone {
+  border: none;
+  border-radius: 20px 0px 20px 20px;
+  background-color: beige;
+  z-index: 10;
+  padding: 10px;
+  position: absolute;
+  right: 5vh;
+}
+.btntwo {
+  border: none;
+  border-radius: 0px 20px 20px 20px;
+  background-color: #545dde;
+  z-index: 10;
+  padding: 10px;
+}
+
+.confooter {
+  width: 100%;
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding: 3vh;
+  z-index: 10;
+
+  /* background-color: black; */
+}
+
+.send {
+  position: absolute;
+  right: 5vh;
+}
+
+.se {
+  overflow: hidden;
+  margin-left: 1vh;
+}
+
+.msg {
+  padding-right: 50%;
+}
