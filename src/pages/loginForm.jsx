@@ -13,9 +13,9 @@ function loginFrom() {
 
   // const [isupload] = useState(false);
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, { resetForm }) => {
     console.log(values);
-
+    resetForm({ values: "" });
     // addform(values).then((response) => {
     //   console.log(response);
     //   setLoading(true);

@@ -2,8 +2,59 @@ import React from "react";
 import "../styles/login.css";
 // import Chat1 from "live-chat.png";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
 
 function registationform() {
+  const initialValues = {
+    fullname: "",
+    email: "",
+    username: "",
+    password: "",
+    retypepassword: "",
+  };
+  const onSubmit = (values, { resetForm }) => {
+    console.log(values);
+
+    resetForm({ values: "" });
+  };
+
+  const validate = (values) => {
+    let errors = {};
+
+    if (!values.fullname) {
+      errors.fullname = "Full Name cann't be empty";
+    }
+
+    if (!values.email) {
+      errors.email = "Email cannot be empty";
+    } else if (
+      !/(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b/.test(
+        values.email
+      )
+    ) {
+      errors.email = "Email must be in correct format";
+    }
+
+    if (!values.username) {
+      errors.username = "Username cannot be empty";
+    }
+
+    if (!values.password) {
+      errors.password = " cannot be empty";
+    }
+
+    if (values.retypepassword != values.password) {
+      errors.retypepassword = "Incorrect password.try again";
+    }
+
+    return errors;
+  };
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validate,
+  });
+
   return (
     <div className="login">
       <div className="row">
@@ -48,51 +99,91 @@ function registationform() {
             <h4 className="logintopic">Let's Chat -Registation Form</h4>
           </div>
 
-          <form className="form">
+          <form className="form" onSubmit={formik.handleSubmit}>
             <div className="form-group">
+              <label htmlFor="title">Full Name</label>
               <input
                 type="text"
-                className="form-control  "
+                className="form-control mb-3 "
                 id="fullname"
                 name="fullname"
-                placeholder="Full Name"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.fullname}
               />
+              {formik.errors.fullname ? (
+                <div className="small text-danger">
+                  {formik.touched.fullname && formik.errors.fullname}
+                </div>
+              ) : null}
             </div>
             <div className="form-group">
+              <label htmlFor="title">Email</label>
               <input
                 type="text"
-                className="form-control  "
+                className="form-control mb-3"
                 id="email"
                 name="email"
-                placeholder="Email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
               />
+              {formik.touched.email && formik.errors.email ? (
+                <div className="small text-danger">{formik.errors.email}</div>
+              ) : null}
             </div>
             <div className="form-group">
+              <label htmlFor="title">Username</label>
               <input
                 type="text"
-                className="form-control  "
+                className="form-control mb-3 "
                 id="username"
                 name="username"
-                placeholder="Username"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.username}
               />
+              {formik.errors.username ? (
+                <div className="small text-danger">
+                  {formik.touched.username && formik.errors.username}
+                </div>
+              ) : null}
             </div>
             <div className="form-group">
+              <label htmlFor="title">Password</label>
               <input
-                type="text"
-                className="form-control  "
+                type="password"
+                className="form-control mb-3 "
                 id="password"
                 name="password"
-                placeholder="Password"
+                minlength="8"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
               />
+              {formik.touched.password && formik.errors.password ? (
+                <div className="small text-danger">
+                  {formik.errors.password}
+                </div>
+              ) : null}
             </div>
             <div className="form-group">
+              <label htmlFor="title">Retypepassword</label>
               <input
-                type="text"
+                type="password"
                 className="form-control  "
                 id="retypepassword"
                 name="retypepassword"
-                placeholder="Retypepassword"
+                minlength="8"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.retypepassword}
               />
+              {formik.touched.retypepassword && formik.errors.retypepassword ? (
+                <div className="small text-danger">
+                  {formik.errors.retypepassword}
+                </div>
+              ) : null}
             </div>
             <button type="submit" className="btn ">
               Register
