@@ -164,7 +164,7 @@ function loginFrom() {
             </Link>
 
             <p className="sign">
-              Don't Have Account? <Link to="/thank">Sign Up</Link>
+              Don't Have Account? <Link to="/registerform">Sign Up</Link>
             </p>
           </form>
         </div>
